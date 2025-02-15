@@ -49,13 +49,13 @@ nb=$(echo "$HOSTNAME" | cut -d '.' -f 1 | tr -d 's')
 ym=("$HOSTNAME" "cache$nb.serv00.com" "web$nb.serv00.com")
 rm -rf ip.txt hy2ip.txt
 for ip in "${ym[@]}"; do
-dig @8.8.8.8 +time=2 +short $ip >> hy2ip.txt
+dig @8.8.8.8 +time=5 +short $ip >> hy2ip.txt
 sleep 1  
 done
 for host in "${ym[@]}"; do
 response=$(curl -sL --connect-timeout 5 --max-time 7 "https://ss.serv0.us.kg/api/getip?host=$host")
-if [[ -z "$response" || "$response" == *unknown* ]]; then
-dig @8.8.8.8 +time=2 +short $host >> ip.txt
+if [[ "$response" =~ ^$|unknown|not|error ]]; then
+dig @8.8.8.8 +time=5 +short $host >> ip.txt
 sleep 1  
 else
 echo "$response" | while IFS='|' read -r ip status; do
@@ -1070,14 +1070,19 @@ EOF
 
 sleep 2
 [ -d "$FILE_PATH" ] || mkdir -p "$FILE_PATH"
-echo "$baseurl" > ${FILE_PATH}/${USERNAME}_v2sub.txt
-cat clash_meta.yaml > ${FILE_PATH}/${USERNAME}_clashmeta.txt
-cat sing_box.json > ${FILE_PATH}/${USERNAME}_singbox.txt
-V2rayN_LINK="https://${USERNAME}.serv00.net/${USERNAME}_v2sub.txt"
-Clashmeta_LINK="https://${USERNAME}.serv00.net/${USERNAME}_clashmeta.txt"
-Singbox_LINK="https://${USERNAME}.serv00.net/${USERNAME}_singbox.txt"
+echo "$baseurl" > ${FILE_PATH}/${UUID}_v2sub.txt
+cat clash_meta.yaml > ${FILE_PATH}/${UUID}_clashmeta.txt
+cat sing_box.json > ${FILE_PATH}/${UUID}_singbox.txt
+V2rayN_LINK="https://${USERNAME}.serv00.net/${UUID}_v2sub.txt"
+Clashmeta_LINK="https://${USERNAME}.serv00.net/${UUID}_clashmeta.txt"
+Singbox_LINK="https://${USERNAME}.serv00.net/${UUID}_singbox.txt"
+allip=$(cat hy2ip.txt)
 cat > list.txt <<EOF
 =================================================================================================
+
+当前客户端正在使用的IP：$IP ,如默认节点IP被墙，可在客户端地址更换以下其他IP
+$allip
+-------------------------------------------------------------------------------------------------
 
 一、Vless-reality分享链接如下：
 $vl_link
