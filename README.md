@@ -1,6 +1,12 @@
+
+## 即将更新Serv00最新视频说明教程………………
+
 # Sing-box两大脚本
-## 一、Sing-box-yg精装桶一键四协议共存脚本（VPS专用）
-## 二、Serv00多平台一键三协议共存脚本（Serv00专用）
+
+### 注：本项目分享订阅节点都为本地化生成，不使用节点转换、订阅器等第三方外链引用，无需担心节点订阅被外链作者查看
+
+### 一、Sing-box-yg精装桶一键四协议共存脚本（VPS专用）
+### 二、Serv00-sb-yg多平台一键三协议共存脚本（Serv00专用）
 
 ### 交流平台：[甬哥博客地址](https://ygkkk.blogspot.com)、[甬哥YouTube频道](https://www.youtube.com/@ygkkk)、[甬哥TG电报群组](https://t.me/+jZHc6-A-1QQ5ZGVl)、[甬哥TG电报频道](https://t.me/+DkC9ZZUgEFQzMTZl)
 --------------------------------------------------------------
@@ -12,8 +18,6 @@
 支持人气最高的四大协议：Vless-reality-vision、Vmess-ws(tls)/Argo、Hysteria-2、Tuic-v5
 
 支持纯IPV6、纯IPV4、双栈VPS，支持amd与arm架构，支持alpine系统，推荐使用最新的Ubuntu系统
-
-本项目分享订阅节点为本地化生成，不使用节点转换等第三方外链引用，无需担心节点订阅被外链作者查看
 
 小白简单模式：无需域名证书，回车三次就安装完成，复制、扫描你要的节点配置
 
@@ -70,8 +74,10 @@ bash <(wget -qO- https://raw.githubusercontent.com/yonggekkk/sing-box-yg/main/sb
 bash <(curl -Ls https://raw.githubusercontent.com/yonggekkk/sing-box-yg/main/serv00.sh)
 ```
 
-### Serv00-sb-yg脚本界面预览图（注：仅供围观）
-![551527748262aad71f58327be9fafa3](https://github.com/user-attachments/assets/26dbda95-9dd3-4244-b9ac-fa5da040734e)
+### Serv00-sb-yg脚本界面预览图，仅限方案一的SSH端安装脚本（注：仅供围观）
+![7cab008213da603d7181839365f7600](https://github.com/user-attachments/assets/9d0d602e-f6d5-46ef-993c-e5c60a00c2fd)
+
+![d5f9309ca27a6ac1ca02dfb2dd8b4c3](https://github.com/user-attachments/assets/42dde173-7dbb-4d36-8e7d-5208a587d4e6)
 
 
 ### 方案二、Serv00多账号自动部署脚本：serv00.yml（github专用）
@@ -92,15 +98,10 @@ curl -sSL https://raw.githubusercontent.com/yonggekkk/sing-box-yg/main/kp.sh -o 
 
 ### 注意：
 
-1、serv00.yml与kp.sh都为"强制保活脚本"，就算Serv00清空你服务器上所有文件，只要让你连接成功，就会自动安装脚本保活，保持不死状态
+1、方案二serv00.yml与方案三kp.sh都为"强制保活脚本"，就算Serv00清空你服务器上所有文件，只要让你连接成功，就会自动安装脚本保活，保持不死状态
 
-2、github也可以不设置定时，在以下两行前加一个```#```字符即可屏蔽定时运行。当发现节点失效，进actions自己启动一次也可
+2、方案一SSH脚本与方案二serv00.yml、方案三kp.sh不可混用，方案二serv00.yml与方案三kp.sh可相互无缝替换
 
-``` #  schedule: ```
-
-``` #   - cron: '0 */4 * * *' ```
-
-3、方案一与方案二、三不可混用，方案二与三可相互无缝替换
 
 -----------------------------------------------------
 
